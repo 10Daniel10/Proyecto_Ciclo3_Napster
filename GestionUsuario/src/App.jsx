@@ -1,7 +1,7 @@
 import 'styles/style.css';
 import Index from 'pages';
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import EditAccount from 'pages/editAccount';
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 function App() {
   return (
