@@ -1,4 +1,5 @@
 import React, {useState}  from 'react'
+import './IngresoForm.css'
 
 function IngresoForm({Ingreso, error}) {
     const [detalles, setDetalles] = useState({nombre: "", correo:"", contraseña: ""});
@@ -7,9 +8,10 @@ function IngresoForm({Ingreso, error}) {
         Ingreso(detalles);
     }
     return (
-        <form onSubmit = {gestorEnvio}>
+       
+        <form onSubmit = {gestorEnvio} className="form--inicio form__entrada-grupo">
             <div className="form-interior"> 
-                <h2>Ingreso</h2>
+                <h2 className= "form__titulo">Ingreso</h2>
                 {/* ERROR!*/}
                 <div className="form-gurpo">
                     <label htmlFor="nombre">Nombre:</label>
@@ -23,9 +25,10 @@ function IngresoForm({Ingreso, error}) {
                         <label htmlFor="contraseña">Contraseña</label>
                         <input type="password" name="contraseña" id="contraseña" onChange={e =>setDetalles({...detalles, contraseña: e.target.value})} value = {detalles.contraseña}/>
                 </div>
-                <input type="submit" value="Ingresar" onClick={() => { alert(`Nombre: ${detalles.nombre} \n Correo: ${detalles.correo} \n Contraseña: ${detalles.contraseña} \n Datos provisionales para ingreso:\n Nombre : administrador\n Correo : administrador@adiministrador.admin\n Contrasena: administrador1234`);}}/>
+                <input type="submit" value="Ingresar" className="envio" onClick={() => { alert(`Nombre: ${detalles.nombre} \n Correo: ${detalles.correo} \n Contraseña: ${detalles.contraseña} \n Datos provisionales para ingreso:\n Nombre : administrador\n Correo : administrador@adiministrador.admin\n Contrasena: administrador1234`);}}/>
             </div>
         </form>
+        
     )
 }
 
