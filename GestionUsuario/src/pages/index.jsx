@@ -38,31 +38,39 @@ const Index = () => {
                   <span>Nombre</span><br></br><br></br>
                   <li>
                      <select className="widthSelect">
-                     <option>1</option>
-                     <option>2</option>
+                     <option></option>
+                     <option>A - Z</option>
+                     <option>Z - A</option>
                      </select>
                   </li><br></br>
                   <span>Cédula</span><br></br><br></br>
                   <li>
                      <select className="widthSelect">
+                     <option></option>
                      <option>1</option>
                      <option>2</option>
+                     <option>3</option>
+                     <option>4</option>
+                     <option>5</option>
                      </select>
                   </li><br></br>
                   <span>Telefóno</span><br></br><br></br>
                   <li>
                      <select className="widthSelect">
-                     <option>1</option>
-                     <option>2</option>
+                     <option></option>
+                     <option>300</option>
+                     <option>301</option>
                      </select>
                   </li><br></br>
                   <span>Tipo de Usuario</span><br></br><br></br>
-                     <li>
+                  <li>
                      <select className="widthSelect">
-                        <option>1</option>
-                        <option>2</option>
+                        <option></option>
+                        <option>Administrador</option>
+                        <option>Vendedor</option>
+                        <option>Usuario</option>
                      </select>
-                     </li>
+                  </li>
                </ul>
                </div>
                <div id="inner-grid">
@@ -95,8 +103,10 @@ const Index = () => {
                      <li>
                         &nbsp; Tipo de Usuario: &nbsp;  
                         <select id="widthSelectOne">
-                           <option>1</option>
-                           <option>2</option>
+                           <option></option>
+                           <option>Administrador</option>
+                           <option>Vendedor</option>
+                           <option>Usuario</option>
                         </select>
                      </li><br></br>
                      <li>
@@ -120,40 +130,41 @@ const Index = () => {
                         <li>Tipo de Usuario</li>
                         <li>Correo Electrónico</li>
                         <li>Fecha de Registro</li>
+                        <li>Estado Usuario</li>
                         <li>Acciones</li>
                      </ul>
                      <DataBase
                         name="David"
                         user="DavidRamirez20"
-                        userType="Estudiante"
+                        userType="Administrador"
                         email="alejoramirezrios@gmial.com"
                         date="09 / 09 / 2021"
                      />
                      <DataBase
                         name="Valentina"
                         user="ValeSa2021"
-                        userType="Estudiante"
+                        userType="Vendedor"
                         email="vsanabria@gmail.com"
                         date="31 / 01 / 2021"
                      />
                      <DataBase
                         name="Andrés"
                         user="AndresLop2021"
-                        userType="Desarrollador"
+                        userType="Vendedor"
                         email="andreslop@gmial.com"
                         date="17 / 06 / 2021"
                      />
                      <DataBase
                         name="Óscar"
                         user="OscarApo2021"
-                        userType="Economista"
+                        userType="Usuario"
                         email="oscapo@gmail.com"
                         date="24 / 09 / 2021"
                      />
                      <DataBase
                         name="Diana"
                         user="DianaRs2021"
-                        userType="Enfermera"
+                        userType="Usuario"
                         email="dimar@gmail.com"
                         date="10 / 10 / 2021"
                      />

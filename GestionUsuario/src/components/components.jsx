@@ -11,7 +11,9 @@ function DataBase({name, user, userType, email, date}){
          <li>{date}</li>
          <li>
             <a href="login">Iniciar Sesión</a><br></br>
-            <Link to="editAccount"></Link>
+            <Link to="editAccount">
+               <a>Editar Cuenta</a>
+            </Link>
          </li>
       </ul>
    )
