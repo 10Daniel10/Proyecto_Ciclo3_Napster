@@ -51,7 +51,7 @@ body{
     border-radius: var(--borde-radio);
     border: 1px solid #dddddd;
     outline: none;
-    background: #eeeeee;
+    background-color: #eeeeee;
     transition: background 0.2s, border-color 0.2s;
 }
 .form-gurpo:focus{
