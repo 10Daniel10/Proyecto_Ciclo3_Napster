@@ -1,6 +1,7 @@
 import React from 'react'
-import DataBase from 'components/components'
+import DataBaseUser from 'components/components'
 import 'styles/style.css';
+import { Link } from 'react-router-dom';
 
 const GestionUser = () => {
    return (
@@ -9,13 +10,19 @@ const GestionUser = () => {
          <div className="contenedor2">
             <ul className="navbar">
                <li>
-               <button className="button mainButton">Menú Principal</button>
+                  <Link to='/'>
+                     <button className="button mainButton">Menú Principal</button>
+                  </Link>   
                </li>
                <li>
-               <button className="button mainButton">Productos</button>
+                  <Link to='/gestion_productos'>
+                     <button className="button mainButton">Productos</button>
+                  </Link>
                </li>
                <li>
-               <button className="button mainButton">Carrito</button>
+                  <Link to='/gestion_ventas'>
+                     <button className="button mainButton">Ventas</button>
+                  </Link>
                </li>
                <li>
                <div className="buscar">
@@ -86,16 +93,8 @@ const GestionUser = () => {
                         <input placeholder="David" type="text" className="textBox"/>
                      </li><br></br>
                      <li>
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Apellidos: &nbsp;
-                        <input placeholder="Ramírez" type="text" className="textBox"/>
-                     </li><br></br>
-                     <li>
                         Correo electrónico:&nbsp;
                         <input placeholder="udea@edu.co" type="email" className="textBox"/>
-                     </li><br></br>
-                     <li>
-                        &nbsp; &nbsp; &nbsp; &nbsp;Identificación: &nbsp;
-                        <input placeholder="C.C" type="number" className="textBox"/>
                      </li><br></br>
                      </ul>
                   </div>
@@ -111,63 +110,67 @@ const GestionUser = () => {
                         </select>
                      </li><br></br>
                      <li>
-                        Estado de Cuenta: &nbsp; 
-                        <input placeholder="Ej: 1000000" type="number" className="textBox"/>
+                        &nbsp; Estado Usuario: &nbsp;&nbsp; 
+                        <select id="widthSelectOne">
+                           <option></option>
+                           <option>Pendiente</option>
+                           <option>Autorizado</option>
+                           <option>No Autorizado</option>
+                        </select>
                      </li><br></br>
                      <li>
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ID: &nbsp; 
-                        <input placeholder="U001" type="text" className="textBox"/>
-                     </li><br></br>
-                     <li>
-                        <button className="button secondaryButton">Añadir</button>
+                        <button className="button secondaryButton">Buscar</button>
                      </li>
                      </ul>
                   </div>
                   <div className="dataBaseContent">
-                     <ul className="dataBaseTitle">
-                        <li><input type="checkbox"/></li>
-                        <li>Nombre</li>
-                        <li>Usuario</li>
-                        <li>Tipo de Usuario</li>
-                        <li>Correo Electrónico</li>
-                        <li>Fecha de Registro</li>
-                        <li>Estado Usuario</li>
-                        <li>Acciones</li>
-                     </ul>
-                     <DataBase
-                        name="David"
-                        user="DavidRamirez20"
+                     <table>
+                        <thead>
+                           <tr className="dataBaseTitle">
+                              <td><input type="checkbox"/></td>
+                              <td>Nombre</td>
+                              <td>Usuario</td>
+                              <td>Tipo de Usuario</td>
+                              <td>Correo Electrónico</td>
+                              <td>Estado Usuario</td>
+                              <td>Acciones</td>
+                           </tr>
+                        </thead>
+                     </table>
+                     <DataBaseUser
+                        name="Alejandro"
+                        user="AlejRamirez20"
                         userType="Administrador"
-                        email="alejoramirezrios@gmial.com"
-                        date="09 / 09 / 2021"
+                        email="alejoramir@gmial.com"
+                        state="No autorizado"
                      />
-                     <DataBase
+                     <DataBaseUser
                         name="Valentina"
                         user="ValeSa2021"
                         userType="Vendedor"
                         email="vsanabria@gmail.com"
-                        date="31 / 01 / 2021"
+                        state="Pendiente"
                      />
-                     <DataBase
+                     <DataBaseUser
                         name="Andrés"
                         user="AndresLop2021"
                         userType="Vendedor"
                         email="andreslop@gmial.com"
-                        date="17 / 06 / 2021"
+                        state="Autorizado"
                      />
-                     <DataBase
-                        name="Óscar"
-                        user="OscarApo2021"
+                     <DataBaseUser
+                        name="Fernando"
+                        user="FernApo2021"
                         userType="Usuario"
-                        email="oscapo@gmail.com"
-                        date="24 / 09 / 2021"
+                        email="fernapo@gmail.com"
+                        state="No autorizado"
                      />
-                     <DataBase
+                     <DataBaseUser
                         name="Diana"
                         user="DianaRs2021"
                         userType="Usuario"
                         email="dimar@gmail.com"
-                        date="10 / 10 / 2021"
+                        state="Autorizado"
                      />
                   </div>
                </div>

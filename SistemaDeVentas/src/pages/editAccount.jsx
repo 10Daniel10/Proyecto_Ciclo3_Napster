@@ -42,20 +42,7 @@ const EditAccount = () => {
                      <option>2</option>
                      </select>
                   </li><br></br>
-                  <span>Cédula</span><br></br><br></br>
-                  <li>
-                     <select className="widthSelect">
-                     <option>1</option>
-                     <option>2</option>
-                     </select>
-                  </li><br></br>
-                  <span>Telefóno</span><br></br><br></br>
-                  <li>
-                     <select className="widthSelect">
-                     <option>1</option>
-                     <option>2</option>
-                     </select>
-                  </li><br></br>
+
                   <span>Tipo de Usuario</span><br></br><br></br>
                      <li>
                      <select className="widthSelect">

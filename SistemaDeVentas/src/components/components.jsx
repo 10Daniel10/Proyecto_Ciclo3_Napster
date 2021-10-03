@@ -1,23 +1,27 @@
 import {Link} from 'react-router-dom';
+import 'styles/style.css';
 
-function DataBase({name, user, userType, email, date}){
+function DataBaseUser({name, user, userType, email, state}){
    return(
-      <ul className="dataBase">
-         <li><input type="checkbox"/></li>
-         <li>{name}</li>
-         <li>{user}</li>
-         <li>{userType}</li>
-         <li>{email}</li>
-         <li>{date}</li>
-         <li>
-            <a href="login">Iniciar Sesión</a><br></br>
-            <Link to="editAccount">
-               <a>Editar Cuenta</a>
-            </Link>
-         </li>
-      </ul>
+      <table>
+         <tbody>
+            <tr className="dataBase">
+               <td><input type="checkbox"/></td>
+               <td>{name}</td>
+               <td>{user}</td>
+               <td>{userType}</td>
+               <td>{email}</td>
+               <td>{state}</td>
+               <td>
+                  <a href="login">Iniciar Sesión</a><br></br>
+                  <Link to="editAccount">
+                     <a>Editar Cuenta</a>
+                  </Link>
+               </td>
+            </tr>
+         </tbody>
+      </table>
    )
 }
 
-
-export default DataBase;
+export default DataBaseUser;

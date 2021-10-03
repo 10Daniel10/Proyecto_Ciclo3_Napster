@@ -1,5 +1,5 @@
 import React from 'react'
-import DataBase from 'components/components';
+import { Link } from 'react-router-dom';
 
 const GestionProd = () => {
    return (
@@ -8,13 +8,19 @@ const GestionProd = () => {
             <div className="contenedor2">
                <ul className="navbar">
                   <li>
-                     <button className="button mainButton">Menú Principal</button>
+                     <Link to='/'>
+                        <button className="button mainButton">Menú Principal</button>
+                     </Link>
                   </li>
                   <li>
-                     <button className="button mainButton">Productos</button>
+                     <Link to='/gestion_datos'>
+                        <button className="button mainButton">Usuarios</button>
+                     </Link>
                   </li>
                   <li>
-                     <button className="button mainButton">Carrito</button>
+                     <Link to='/gestion_ventas'>
+                        <button className="button mainButton">Ventas</button>
+                     </Link>
                   </li>
                   <li>
                      <div className="buscar">
@@ -31,7 +37,7 @@ const GestionProd = () => {
                   <div id="columnOne">
                   <br></br>
                   <div id="blockTitle">
-                     Gestión de Usuarios/Roles
+                     Gestión de Productos
                   </div><br></br>
                   <span id="filter">Filtrar</span><br></br>
                   <ul className="lista">
@@ -43,7 +49,7 @@ const GestionProd = () => {
                         <option>Z - A</option>
                         </select>
                      </li><br></br>
-                     <span>Cédula</span><br></br><br></br>
+                     <span>Identificador</span><br></br><br></br>
                      <li>
                         <select className="widthSelect">
                         <option></option>
@@ -54,23 +60,6 @@ const GestionProd = () => {
                         <option>5</option>
                         </select>
                      </li><br></br>
-                     <span>Telefóno</span><br></br><br></br>
-                     <li>
-                        <select className="widthSelect">
-                        <option></option>
-                        <option>300</option>
-                        <option>301</option>
-                        </select>
-                     </li><br></br>
-                     <span>Tipo de Usuario</span><br></br><br></br>
-                     <li>
-                        <select className="widthSelect">
-                           <option></option>
-                           <option>Administrador</option>
-                           <option>Vendedor</option>
-                           <option>Usuario</option>
-                        </select>
-                     </li>
                   </ul>
                   </div>
                   <div id="inner-grid">
@@ -79,14 +68,6 @@ const GestionProd = () => {
                         <li>
                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;Usuario:&nbsp;
                            <input placeholder="DavidRamirez20" type="text" className="textBox"/>
-                        </li><br></br>
-                        <li>
-                           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Nombre:&nbsp;
-                           <input placeholder="David" type="text" className="textBox"/>
-                        </li><br></br>
-                        <li>
-                           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Apellidos: &nbsp;
-                           <input placeholder="Ramírez" type="text" className="textBox"/>
                         </li><br></br>
                         <li>
                            Correo electrónico:&nbsp;
@@ -118,56 +99,19 @@ const GestionProd = () => {
                            <input placeholder="U001" type="text" className="textBox"/>
                         </li><br></br>
                         <li>
-                           <button className="button secondaryButton">Añadir</button>
+                           <button className="button secondaryButton">Buscar</button>
                         </li>
                         </ul>
                      </div>
                      <div className="dataBaseContent">
                         <ul className="dataBaseTitle">
                            <li><input type="checkbox"/></li>
-                           <li>Nombre</li>
-                           <li>Usuario</li>
-                           <li>Tipo de Usuario</li>
-                           <li>Correo Electrónico</li>
-                           <li>Fecha de Registro</li>
-                           <li>Estado Usuario</li>
-                           <li>Acciones</li>
+                           <li>ID Producto</li>
+                           <li>Descripción</li>
+                           <li>Valor unitario</li>
+                           <li>Estado</li>
                         </ul>
-                        <DataBase
-                           name="David"
-                           user="DavidRamirez20"
-                           userType="Administrador"
-                           email="alejoramirezrios@gmial.com"
-                           date="09 / 09 / 2021"
-                        />
-                        <DataBase
-                           name="Valentina"
-                           user="ValeSa2021"
-                           userType="Vendedor"
-                           email="vsanabria@gmail.com"
-                           date="31 / 01 / 2021"
-                        />
-                        <DataBase
-                           name="Andrés"
-                           user="AndresLop2021"
-                           userType="Vendedor"
-                           email="andreslop@gmial.com"
-                           date="17 / 06 / 2021"
-                        />
-                        <DataBase
-                           name="Óscar"
-                           user="OscarApo2021"
-                           userType="Usuario"
-                           email="oscapo@gmail.com"
-                           date="24 / 09 / 2021"
-                        />
-                        <DataBase
-                           name="Diana"
-                           user="DianaRs2021"
-                           userType="Usuario"
-                           email="dimar@gmail.com"
-                           date="10 / 10 / 2021"
-                        />
+                        
                      </div>
                   </div>
                </div>
