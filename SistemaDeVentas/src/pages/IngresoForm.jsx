@@ -1,6 +1,6 @@
 import React, {useState}  from 'react'
 import '../styles/IngresoForm.css'
-
+import { Link } from 'react-router-dom';
 
 function IngresoForm({Ingreso}) {
     const [detalles, setDetalles] = useState({correo:""});
@@ -9,7 +9,7 @@ function IngresoForm({Ingreso}) {
         
     }
     return (
-       
+       <div className="form--inicio">
         <form onSubmit = {gestorEnvio} className="form--inicio form__entrada-grupo">
             <div className="form-interior"> 
                 <h2 className= "form__titulo">Ingreso</h2>
@@ -23,8 +23,33 @@ function IngresoForm({Ingreso}) {
                 <input type="submit" value="Ingresar" className="envio" onClick={() => { alert(`Correo: ${detalles.correo}`);}}/>
             </div>
         </form>
+        <Link to='/registro_producto'>
+            <button className="button mainButton">Módulo de registro de productos</button>
+        </Link>
+        <Link to='/gestion_productos'>
+            <button className="button mainButton">Módulo de gestión deproductos</button>
+        </Link>
+        <Link to='gestion_ventas'>
+            <button className="button mainButton">Módulo de gestión deventas</button>
+        </Link>
+        <Link to='/gestion_datos'>
+            <button className="button mainButton">Módulo de gestion de usuarios y roles</button>
+        </Link>
+        <Link to='/modificacion_producto'>
+            <button className="button mainButton"> Módulo de modificación de productos</button>
+        </Link>
+        <Link to='/registro_venta'>
+            <button className="button mainButton"> Módulo de registro de ventas</button>
+        </Link>
+        <Link to='/modificacion_venta'>
+            <button className="button mainButton">Módulo modificación de ventas </button>
+        </Link>
+        <Link to='/modificacion_usuario'>
+            <button className="button mainButton">Módulo modificación de usurarios </button>
+        </Link>
+       
         
-        
+        </div>
     )
 }
 
