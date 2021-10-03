@@ -1,4 +1,4 @@
-body{
+.form--inicio{
    
     --color-primario: #009579;
     --color-primario-oscuro: #007f67;
@@ -16,7 +16,6 @@ body{
     justify-content: center;
     
     font-size: 18px;
-    /* formato del fondo, puede usarse una url para usar una imagen o incluso un gif de fondo*/
     background: var(--color-primario);
     background-size: cover;
 }
@@ -24,17 +23,12 @@ body{
     width: 400px;
     max-width: 400px;
     margin: 1rem;
-    /*definición de padding https://developer.mozilla.org/es/docs/Web/CSS/padding
-     es similar a un margen, es como la diferencia entre el margen de proposito estético para mostrar al usuario
-     y un margen para definir un espacio de desarrollo
-     1rem= tamaño de la fuente (linea 40)*/
+  
     padding: 2rem;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
-    /*notése aca como la variable borde radio definida arriba se usa para asignar la propiedad 
-    border-radius de los elementos con class = "contenedor" que en este caso son todos*/
+   
     border-radius: var(--borde-radio);
     background: #ffff;
-
 }
 .form__titulo{
     margin-bottom: 2rem;

@@ -1,11 +1,12 @@
 import React from 'react'
 import DataBase from 'components/components'
+import 'styles/style.css';
 
 const Index = () => {
    return (
       <div>
-         <header>
-         <div className="contenedor">
+         <header className="cabecera">
+         <div className="contenedor2">
             <ul className="navbar">
                <li>
                <button className="button mainButton">Menú Principal</button>
@@ -34,7 +35,7 @@ const Index = () => {
                   Gestión de Usuarios/Roles
                </div><br></br>
                <span id="filter">Filtrar</span><br></br>
-               <ul>
+               <ul className="lista">
                   <span>Nombre</span><br></br><br></br>
                   <li>
                      <select className="widthSelect">
@@ -75,7 +76,7 @@ const Index = () => {
                </div>
                <div id="inner-grid">
                   <div id="contentUl1">
-                     <ul>
+                     <ul className="lista">
                      <li>
                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;Usuario:&nbsp;
                         <input placeholder="DavidRamirez20" type="text" className="textBox"/>
@@ -99,7 +100,7 @@ const Index = () => {
                      </ul>
                   </div>
                   <div id="contentUl2">
-                     <ul>
+                     <ul className="lista">
                      <li>
                         &nbsp; Tipo de Usuario: &nbsp;  
                         <select id="widthSelectOne">

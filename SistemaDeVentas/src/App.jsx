@@ -1,7 +1,7 @@
-import 'styles/style.css';
+
+import RegProd from 'pages/registro_producto';
 import Index from 'pages';
 import EditAccount from 'pages/editAccount';
-import RegProd from 'pages/registro_producto';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import IngresoForm from 'pages/IngresoForm';
 

@@ -4,15 +4,16 @@
   box-sizing: border-box;
 }
 
-.App {
+.App2 {
   text-align: center;
-}
-
-body {
   background-image: url("../Media/Background.jpg");
 }
 
-h1 {
+/* .BodyReg {
+  background-image: url("../Media/Background.jpg");
+} */
+
+.TituloH1 {
   color:white;
 }
 

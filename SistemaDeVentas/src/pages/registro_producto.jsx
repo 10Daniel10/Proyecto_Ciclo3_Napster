@@ -3,12 +3,12 @@ import '../Media/Background.jpg';
 
 function RegProd() {
     return (
-      <div className="App">
+      <div className="App2">
       <header>
           <br></br>
-          <h1>MÓDULO ADMINISTRADOR DE VENTAS</h1> 
+          <h1 className="TituloH1">MÓDULO ADMINISTRADOR DE VENTAS</h1> 
       </header>
-      <body>
+      <body className="BodyReg">
       <form action="" method="" >
       <section className="form-register">
       <h4>Ingrese producto</h4>

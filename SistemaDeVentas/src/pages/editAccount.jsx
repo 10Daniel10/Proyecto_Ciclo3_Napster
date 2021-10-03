@@ -1,10 +1,11 @@
 import React from 'react'
+import 'styles/style.css';
 
 const EditAccount = () => {
   return (
     <div>
-      <header>
-         <div className="contenedor">
+      <header className="cabecera">
+         <div className="contenedor2">
             <ul className="navbar">
                <li>
                <button className="button mainButton">Menú Principal</button>
