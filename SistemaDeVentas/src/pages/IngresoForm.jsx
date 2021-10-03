@@ -24,6 +24,7 @@ function IngresoForm({Ingreso}) {
             </div>
         </form>
         
+        
     )
 }
 
