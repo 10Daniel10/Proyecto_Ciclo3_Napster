@@ -1,10 +1,12 @@
 import React from 'react'
+import DataBase from 'components/components'
+import 'styles/style.css';
 
-const EditAccount = () => {
-  return (
-    <div>
-      <header>
-         <div className="contenedor">
+const Index = () => {
+   return (
+      <div>
+         <header className="cabecera">
+         <div className="contenedor2">
             <ul className="navbar">
                <li>
                <button className="button mainButton">Menú Principal</button>
@@ -33,40 +35,48 @@ const EditAccount = () => {
                   Gestión de Usuarios/Roles
                </div><br></br>
                <span id="filter">Filtrar</span><br></br>
-               <ul>
+               <ul className="lista">
                   <span>Nombre</span><br></br><br></br>
                   <li>
                      <select className="widthSelect">
-                     <option>1</option>
-                     <option>2</option>
+                     <option></option>
+                     <option>A - Z</option>
+                     <option>Z - A</option>
                      </select>
                   </li><br></br>
                   <span>Cédula</span><br></br><br></br>
                   <li>
                      <select className="widthSelect">
+                     <option></option>
                      <option>1</option>
                      <option>2</option>
+                     <option>3</option>
+                     <option>4</option>
+                     <option>5</option>
                      </select>
                   </li><br></br>
                   <span>Telefóno</span><br></br><br></br>
                   <li>
                      <select className="widthSelect">
-                     <option>1</option>
-                     <option>2</option>
+                     <option></option>
+                     <option>300</option>
+                     <option>301</option>
                      </select>
                   </li><br></br>
                   <span>Tipo de Usuario</span><br></br><br></br>
-                     <li>
+                  <li>
                      <select className="widthSelect">
-                        <option>1</option>
-                        <option>2</option>
+                        <option></option>
+                        <option>Administrador</option>
+                        <option>Vendedor</option>
+                        <option>Usuario</option>
                      </select>
-                     </li>
+                  </li>
                </ul>
                </div>
-               <div id="gridStandard">
-                  <div id="contentUl3">
-                     <ul>
+               <div id="inner-grid">
+                  <div id="contentUl1">
+                     <ul className="lista">
                      <li>
                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;Usuario:&nbsp;
                         <input placeholder="DavidRamirez20" type="text" className="textBox"/>
@@ -88,12 +98,16 @@ const EditAccount = () => {
                         <input placeholder="C.C" type="number" className="textBox"/>
                      </li><br></br>
                      </ul>
-                     <ul>
+                  </div>
+                  <div id="contentUl2">
+                     <ul className="lista">
                      <li>
                         &nbsp; Tipo de Usuario: &nbsp;  
                         <select id="widthSelectOne">
-                           <option>1</option>
-                           <option>2</option>
+                           <option></option>
+                           <option>Administrador</option>
+                           <option>Vendedor</option>
+                           <option>Usuario</option>
                         </select>
                      </li><br></br>
                      <li>
@@ -105,17 +119,64 @@ const EditAccount = () => {
                         <input placeholder="U001" type="text" className="textBox"/>
                      </li><br></br>
                      <li>
-                        <button className="button secondaryButton">Editar</button>
+                        <button className="button secondaryButton">Añadir</button>
                      </li>
                      </ul>
+                  </div>
+                  <div className="dataBaseContent">
+                     <ul className="dataBaseTitle">
+                        <li><input type="checkbox"/></li>
+                        <li>Nombre</li>
+                        <li>Usuario</li>
+                        <li>Tipo de Usuario</li>
+                        <li>Correo Electrónico</li>
+                        <li>Fecha de Registro</li>
+                        <li>Estado Usuario</li>
+                        <li>Acciones</li>
+                     </ul>
+                     <DataBase
+                        name="David"
+                        user="DavidRamirez20"
+                        userType="Administrador"
+                        email="alejoramirezrios@gmial.com"
+                        date="09 / 09 / 2021"
+                     />
+                     <DataBase
+                        name="Valentina"
+                        user="ValeSa2021"
+                        userType="Vendedor"
+                        email="vsanabria@gmail.com"
+                        date="31 / 01 / 2021"
+                     />
+                     <DataBase
+                        name="Andrés"
+                        user="AndresLop2021"
+                        userType="Vendedor"
+                        email="andreslop@gmial.com"
+                        date="17 / 06 / 2021"
+                     />
+                     <DataBase
+                        name="Óscar"
+                        user="OscarApo2021"
+                        userType="Usuario"
+                        email="oscapo@gmail.com"
+                        date="24 / 09 / 2021"
+                     />
+                     <DataBase
+                        name="Diana"
+                        user="DianaRs2021"
+                        userType="Usuario"
+                        email="dimar@gmail.com"
+                        date="10 / 10 / 2021"
+                     />
                   </div>
                </div>
                </div>
          </form>
          <section></section>
          </main>
-    </div>
-  )
+      </div>
+   )
 }
 
-export default EditAccount
+export default Index;
