@@ -9,9 +9,11 @@
   justify-content: space-around;
   align-items: center;
   padding: 10px;
+  list-style: none;
 }
 
 .contenedor2 {
+  list-style: none;
   background-color:white;
   margin: 0px;
   padding: 5px;
@@ -85,6 +87,7 @@
 #outer-grid {
   display: grid;
   grid-template-columns: 20% 80%;
+  list-style: none;
 }
 
 #inner-grid {
@@ -94,6 +97,7 @@
   background-color:beige;
   padding: 20px;
   border-radius: 2px;
+  list-style: none;
 }
 
 #gridStandard {
@@ -169,6 +173,7 @@ select {
   display: grid;
   grid-column: span 2;
   margin-top: 10px;
+  list-style: none;
 }
 
 .dataBaseTitle {
@@ -179,6 +184,7 @@ select {
   padding: 20px;
   font-weight: bolder;
   font-size: large;
+  list-style: none;
 }
 
 .dataBase {
@@ -187,6 +193,7 @@ select {
   border: 1px solid black;
   padding: 20px;
   align-items: center;
+  list-style: none;
 }
 
 #filter {

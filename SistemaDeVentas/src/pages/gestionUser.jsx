@@ -2,7 +2,7 @@ import React from 'react'
 import DataBase from 'components/components'
 import 'styles/style.css';
 
-const Index = () => {
+const GestionUser = () => {
    return (
       <div>
          <header className="cabecera">
@@ -179,4 +179,4 @@ const Index = () => {
    )
 }
 
-export default Index;
+export default GestionUser;
