@@ -14,7 +14,7 @@ function DataBaseUser({name, user, userType, email, state}){
                <td>{state}</td>
                <td>
                   <a href="login">Iniciar Sesión</a><br></br>
-                  <Link to="editAccount">
+                  <Link to="/modificacion_usuario">
                      <a>Editar Cuenta</a>
                   </Link>
                </td>
