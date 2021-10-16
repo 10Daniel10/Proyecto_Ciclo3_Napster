@@ -92,6 +92,7 @@
   display: grid;
   grid-template-columns: 20% 80%;
   list-style: none;
+  height: 100%;
 }
 
 #inner-grid {
@@ -102,6 +103,7 @@
   padding: 20px;
   border-radius: 2px;
   list-style: none;
+  height: 100%;
 }
 
 #gridStandard {
@@ -212,4 +214,37 @@
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   padding: 5px;
+}
+
+.tabla{
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.tabla td,
+.tabla th{
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.tabla th{
+  background-color:navy;
+  color: rgb(231, 231, 231);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  font-size: xx-large;
+}
+
+.tabla tr:nth-child(even){
+  background-color:#f2f2f2;;
+}
+
+.tabla tr:hover{
+  background-color:rgba(88, 171, 255, 0.651);
+  cursor: pointer;
+}
+
+.editBotton {
+  
 }

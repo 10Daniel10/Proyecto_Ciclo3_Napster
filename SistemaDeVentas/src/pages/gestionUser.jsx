@@ -1,7 +1,8 @@
-import React from 'react'
-import DataBaseUser from 'components/components'
-import 'styles/style.css';
+import React, { useEffect, useState } from 'react'
+import { obtenerUsuarios } from 'utils/api';
 import { Link } from 'react-router-dom';
+import 'styles/style.css';
+import DataBaseUser from 'components/components';
 
 const GestionUser = () => {
    return (
@@ -124,54 +125,7 @@ const GestionUser = () => {
                      </ul>
                   </div>
                   <div className="dataBaseContent">
-                     <table>
-                        <thead>
-                           <tr className="dataBaseTitle">
-                              <td><input type="checkbox"/></td>
-                              <td>Nombre</td>
-                              <td>Usuario</td>
-                              <td>Tipo de Usuario</td>
-                              <td>Correo Electrónico</td>
-                              <td>Estado Usuario</td>
-                              <td>Acciones</td>
-                           </tr>
-                        </thead>
-                     </table>
-                     <DataBaseUser
-                        name="Alejandro"
-                        user="AlejRamirez20"
-                        userType="Administrador"
-                        email="alejoramir@gmial.com"
-                        state="No autorizado"
-                     />
-                     <DataBaseUser
-                        name="Valentina"
-                        user="ValeSa2021"
-                        userType="Vendedor"
-                        email="vsanabria@gmail.com"
-                        state="Pendiente"
-                     />
-                     <DataBaseUser
-                        name="Andrés"
-                        user="AndresLop2021"
-                        userType="Vendedor"
-                        email="andreslop@gmial.com"
-                        state="Autorizado"
-                     />
-                     <DataBaseUser
-                        name="Fernando"
-                        user="FernApo2021"
-                        userType="Usuario"
-                        email="fernapo@gmail.com"
-                        state="No autorizado"
-                     />
-                     <DataBaseUser
-                        name="Diana"
-                        user="DianaRs2021"
-                        userType="Usuario"
-                        email="dimar@gmail.com"
-                        state="Autorizado"
-                     />
+                     <Usuarios />
                   </div>
                </div>
                </div>
@@ -179,6 +133,62 @@ const GestionUser = () => {
          <section></section>
          </main>
       </div>
+   )
+}
+
+const Usuarios = () => {
+   const [usuarios, setUsuarios] = useState([]);
+   const [ejecutarConsulta, setEjecutarConsulta] = useState([]);
+
+   useEffect(() => {
+      console.log('consulta', ejecutarConsulta);
+      if (ejecutarConsulta) {
+         obtenerUsuarios(
+            (response) => {
+               console.log('La respuesta que se recibio fue:', response);
+               setUsuarios(response.data);
+            },
+            (error) => {
+               console.error('Salio un error:', error);
+            }
+         );
+         setEjecutarConsulta(true);
+      }
+   }, [ejecutarConsulta]);
+
+   return (
+      <TablaUsuarios listaUsuarios = {usuarios} setEjecutarConsulta = {setEjecutarConsulta}/>
+   )
+}
+
+const TablaUsuarios = ({listaUsuarios}) => {
+   const [busqueda, setBusqueda] = useState('');
+   const [usuariosFiltrados, setUsuariosFiltrados] = useState(listaUsuarios);
+
+   useEffect(() => {
+      setUsuariosFiltrados(
+         listaUsuarios.filter((elemento) => {
+            return JSON.stringify(elemento).toLowerCase().includes(busqueda.toLowerCase());
+         })
+      );
+   }, [busqueda, listaUsuarios]);
+
+   return (
+      <>
+         <table className='tabla'>
+            <thead>
+               <tr>
+                  <td>ID</td>
+                  <td>Nombre y Apellido</td>
+                  <td>Correo Electrónico</td>
+                  <td>Tipo de Usuario</td>
+                  <td>Estado Usuario</td>
+                  <td>Acciones</td>
+               </tr>
+            </thead>
+            <DataBaseUser />
+         </table>
+      </>
    )
 }
 

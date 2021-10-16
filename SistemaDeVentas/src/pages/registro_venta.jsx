@@ -1,45 +1,98 @@
 import '../styles/App.css';
 import '../Media/Background.jpg';
 import { Link } from 'react-router-dom';
+import { crearVentas } from 'utils/api.js';
+import React, {useRef} from 'react';
+import { toast } from 'react-toastify';
 
-function RegVenta() {
-    return (
-      <div className="App2">
+const RegVenta = () => {
+
+const form = useRef(null);
+
+const SubmitForm = async (e) => {
+   e.preventDefault();
+   const fd = new FormData(form.current);
+
+   const nuevaVenta = {};
+      fd.forEach((value, key) => {
+        nuevaVenta[key] = value;
+   });
+
+   await crearVentas(
+      {
+        product: nuevaVenta.product,
+        amount: nuevaVenta.amount,
+        perunit: nuevaVenta.perunit,
+        date: nuevaVenta.date,
+        ID_Client: nuevaVenta.ID_Client,
+        NameClient: nuevaVenta.NameClient,
+        Seller: nuevaVenta.Seller,
+        state: nuevaVenta.state
+      },
+      (response) => {
+        console.log(response.data);
+        toast.success('Venta agregado con éxito');
+      },
+      (error) => {
+        console.error(error);
+        toast.error('Error creando una venta');
+      }
+   );
+   //setMostrarTabla(true);
+}
+
+  return (
+    <div className="App2">
       <header>
           <br></br>
           <h1 className="TituloH1">MÓDULO ADMINISTRADOR DE VENTAS</h1> 
       </header>
-      <body className="BodyReg">
-      <form action="" method="" >
-      <section className="form-register">
-      <h4>Ingrese venta</h4>
-      <input className="controls" type="number" min= {1} max={20} name="id_venta" id="id_venta" placeholder="Identificador de la venta"></input>
-      <input className="controls" type="text" name="id_producto" id="id_producto" placeholder="Identificador del producto"></input>
-      <input className="controls" type="number" name="cantidad" id="cantidad" placeholder="Cantidad"></input>
-      <input className="controls" type="number" name="prec_unitario" id="prec_unitario" placeholder="Precio unitario"></input>
-      <label for="fecha" className="controls2">Fecha de venta:</label>
-      <input type="date" id="fecha" name="fecha"></input>
-      <br></br>
-      <br></br>
-      <input className="controls" type="number" name="ident_cliente" id="ident_cliente" placeholder="Número de identificación cliente"></input>
-      <input className="controls" type="text" name="nomb_cliente" id="nomb_cliente" placeholder="Nombre del cliente"></input>
-      <input className="controls" type="text" name="dendedor" id="vendedor" placeholder="Vendedor"></input>  
-      <input className="controls" type="text" name="val_total" id="val_total" placeholder="Valor total"></input>
-      <label className="controls2">Estado venta:</label>
-      <br></br>
-      <br></br>
-      <section>
-      <input class="radiob" type="radio" value="disponible" name="disponibilidad" /> En proceso
-      <input class="radiob" type="radio" value="noDisponible" name="disponibilidad" /> Cancelado
-      <input class="radiob" type="radio" value="noDisponible" name="disponibilidad" /> Entregado
-      </section>
-      <button className="botons" type="submit" value="Enviar">Registar venta</button>
-      <button className="botons" type="reset" value="Reestablecer">Limpiar Campos</button>
-      <Link to='/'> <a id="volver">Volver</a> </Link>
-      </section>
-      </form>
+      <body className="BodyReg form-register">
+        <form ref={form} onSubmit={SubmitForm} >
+          <h4>Ingrese venta</h4>
+
+          <label htmlFor='product'>
+            <input className="controls" type="text" name="product" placeholder="Producto" required></input>
+          </label>
+
+          <label htmlFor='amount'>
+            <input className="controls" type="number" name="amount" placeholder="Cantidad" required></input>
+          </label>
+
+          <label htmlFor='perunit'>
+            <input className="controls" type="number" name="perunit" placeholder="Precio unitario" required></input>
+          </label>
+
+          <label className="controls2" htmlFor='date'>Fecha de venta:
+            <input type="date" name="date"></input>
+          </label><br></br><br></br>
+
+          <label htmlFor='ID_Client'>
+            <input className="controls" type="number" name="ID_Client" placeholder="Número de identificación cliente" required></input>
+          </label><br></br>
+
+          <label htmlFor='NameClient'>
+            <input className="controls" type="text" name="NameClient" placeholder="Nombre del cliente" required></input>
+          </label><br></br>
+
+          <label htmlFor='Seller'>
+            <input className="controls" type="text" name="Seller" placeholder="Vendedor" required></input>  
+          </label>
+
+          <label className="controls2">Estado venta:</label><br></br><br></br>
+          <label htmlFor='state'>
+            <input className="radiob" type="radio" value="EnProceso" name="state" /> En proceso
+            <input className="radiob" type="radio" value="Cancelado" name="state" /> Cancelado
+            <input className="radiob" type="radio" value="Entregado" name="state" /> Entregado
+          </label>
+
+          <button className="botons" type="submit" value="Enviar">Registar venta</button>
+          <button className="botons" type="reset" value="Reestablecer">Limpiar Campos</button>
+          <Link to='/'>Volver</Link>
+        </form>
       </body>
-      </div>
-    );
-  }
-  export default RegVenta;
+    </div>
+  );
+}
+
+export default RegVenta;

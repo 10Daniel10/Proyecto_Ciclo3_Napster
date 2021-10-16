@@ -1,31 +1,73 @@
 import '../styles/App.css';
 import '../Media/Background.jpg';
 import { Link } from 'react-router-dom';
+import {useRef} from 'react';
+import { toast } from 'react-toastify';
+import { crearProducto } from 'utils/api';
 
-function RegProd() {
-    return (
-      <div className="App2">
+const RegProd = () => {
+
+  const form = useRef(null);
+
+  const SubmitForm = async (e) => {
+    e.preventDefault();
+    const fd = new FormData(form.current);
+  
+    const nuevoProducto = {};
+      fd.forEach((value, key) => {
+        nuevoProducto[key] = value;
+    });
+
+  await crearProducto(
+    {
+      description: nuevoProducto.description,
+      perunit: nuevoProducto.perunit,
+      state: nuevoProducto.state,
+    },
+    (response) => {
+      console.log(response.data);
+      toast.success('Producto agregado con éxito');
+    },
+    (error) => {
+      console.error(error);
+      toast.error('Error creando un Producto');
+    }
+  );
+  //setMostrarTabla(true);
+  }
+
+  return (
+    <div className="App2">
       <header>
           <br></br>
           <h1 className="TituloH1">MÓDULO ADMINISTRADOR DE PRODUCTOS</h1> 
       </header>
-      <body className="BodyReg">
-      <form action="" method="" >
-      <section className="form-register">
-      <h4>Ingrese producto</h4>
-      <input className="controls" type="number" min= {1} max={20} name="id_prod" id="id_prod" placeholder="Identificador del producto"></input>
-      <input className="controls" type="text" name="desc_pord" id="desc_prod" placeholder="Descriptción del producto"></input>
-      <input className="controls" type="text" name="val_unit" id="val_unit" placeholder="Valor unitario"></input>
-      <label className="controls2">Estado</label>
-      <input class="radiob" type="radio" value="disponible" name="disponibilidad" /> Disponible
-      <input class="radiob" type="radio" value="noDisponible" name="disponibilidad" /> No Disponible
-      <button className="botons" type="submit" value="Enviar">Registar Producto</button>
-      <button className="botons" type="reset" value="Reestablecer">Limpiar Campos</button>
-      <Link to='/'> <a id="volver">Volver</a> </Link>
-      </section>
-      </form>
+      <body className="BodyReg form-register">
+        <form ref={form} onSubmit={SubmitForm} >
+          <h4>Ingrese Producto</h4>
+
+          <label htmlFor='description'>
+            <input className="controls" type="text" name="description" placeholder="Descriptción del producto" required></input>
+          </label>
+
+          <label htmlFor='perunit'>
+            <input className="controls" type="text" name="perunit" placeholder="Valor unitario" required></input>
+          </label>
+
+          <label className="controls2">Estado</label>
+          <label htmlFor='state'>
+            <input className="radiob" type="radio" value="Disponible" name="state"/> Disponible
+            <input className="radiob" type="radio" value="NoDisponible" name="state" /> No Disponible
+          </label>
+
+          <button className="botons" type="submit" value="Enviar">Registar Producto</button>
+          <button className="botons" type="reset" value="Reestablecer">Limpiar Campos</button>
+
+          <Link to='/'>Volver</Link>
+        </form>
       </body>
-      </div>
-    );
-  }
-  export default RegProd;
+    </div>
+  );
+};
+
+export default RegProd;
