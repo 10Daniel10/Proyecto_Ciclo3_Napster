@@ -8,9 +8,15 @@ import IngresoForm from 'pages/IngresoForm';
 import GestionProd from 'pages/gestionProd';
 import GestionSale from 'pages/gestionSale';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 function App() {
   return (
+      <Auth0Provider
+      domain="misiontic-napster.us.auth0.com"
+      clientId="2Kv0ttlFaRWRLEnAPx8yViPbLCzk6PM1"
+      redirectUri={window.location.origin}
+      >
         <div className="App">
             <Router>
                 <Switch>
@@ -43,7 +49,9 @@ function App() {
                     </Route>
                 </Switch>
             </Router>
-        </div>
+           
+        </div> 
+        </Auth0Provider>
     );
 }
 

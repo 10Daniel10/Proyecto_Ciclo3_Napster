@@ -1,8 +1,10 @@
 import React, {useState}  from 'react'
 import '../styles/IngresoForm.css'
 import { Link } from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
 
 function IngresoForm({Ingreso}) {
+    const { loginWithRedirect } = useAuth0();
     const [detalles, setDetalles] = useState({correo:""});
     const gestorEnvio = e =>{
         e.preventDefault();
@@ -21,6 +23,7 @@ function IngresoForm({Ingreso}) {
                 </div>
 
                 <input type="submit" value="Ingresar" className="envio" onClick={() => { alert(`Correo: ${detalles.correo}`);}}/>
+                <button onClick={() => loginWithRedirect()}>Log In</button>;
             </div>
         </form>
         <Link to='/registro_producto'>
