@@ -67,8 +67,10 @@ const RegUsuario = () => {
                   <input className="radiob" type="radio" name="state" value="No Autorizado"/> No autorizado
                   <input className="radiob" type="radio" name="state" value="Pendiente"/> Pendiente
                </label>
-               <button className="botons" type="submit" >Registar usuario</button>
+               
+               <button className="botons" type="submit" >Registar Usuario</button>
                <button className="botons" type="reset" >Limpiar Campos</button>
+               
                <Link to='/'>Volver</Link>
             </form>
          </div>

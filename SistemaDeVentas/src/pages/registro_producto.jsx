@@ -59,7 +59,7 @@ const RegProd = () => {
             <input className="radiob" type="radio" value="Disponible" name="state"/> Disponible
             <input className="radiob" type="radio" value="NoDisponible" name="state" /> No Disponible
           </label>
-
+          
           <button className="botons" type="submit" value="Enviar">Registar Producto</button>
           <button className="botons" type="reset" value="Reestablecer">Limpiar Campos</button>
 

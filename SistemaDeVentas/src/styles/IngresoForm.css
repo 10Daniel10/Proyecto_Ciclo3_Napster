@@ -71,3 +71,16 @@
 .envio:active{
     transform: scale(0.98);
 }
+
+.foot{
+    background-color: #252c6a;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.mainButton {
+    background-color:gray;
+    color: white;
+    width: 150px;
+}

@@ -16,43 +16,36 @@ function IngresoForm({Ingreso}) {
                 <div className="form-interior"> 
                     <h2 className= "form__titulo">Ingreso</h2>
                     {/* ERROR!*/}
-
-                    <button className="envio" onClick={() => loginWithRedirect()}>INICIAR
-                        SESIÓN CON AUTH0
+                    <button className="envio" onClick={() => loginWithRedirect()}>
+                        INICIAR SESIÓN CON AUTH0
                     </button>
                     <button className="envio" onClick={() => logout({ returnTo: window.location.origin })}>
                         CERRAR SESIÓN
                     </button>
                 </div>
-            </form><br></br>
-            <div>
+            </form>
+            <div className='foot'>
                 <Link to='/registro_producto'>
-                    <button className="button mainButton">Módulo de registro de productos</button>
-                </Link>
-                <Link to='/gestion_productos'>
-                    <button className="button mainButton">Módulo de gestión deproductos</button>
-                </Link>
-                <Link to='gestion_ventas'>
-                    <button className="button mainButton">Módulo de gestión deventas</button>
-                </Link>
-                <Link to='/gestion_usuarios'>
-                    <button className="button mainButton">Módulo de gestion de usuarios y roles</button>
-                </Link>
-                <Link to='/modificacion_producto'>
-                    <button className="button mainButton"> Módulo de modificación de productos</button>
+                    <button className="button mainButton">Módulo de Registro de Productos</button>
                 </Link>
                 <Link to='/registro_venta'>
-                    <button className="button mainButton"> Módulo de registro de ventas</button>
+                    <button className="button mainButton">Módulo de Registro de Ventas</button>
                 </Link>
-                <Link to='/modificacion_venta'>
-                    <button className="button mainButton">Módulo modificación de ventas </button>
+                <Link to='/registro_usuario'>
+                    <button className="button mainButton">Módulo de Registro de Usuarios</button>
                 </Link>
-                <Link to='/modificacion_usuario'>
-                    <button className="button mainButton">Módulo modificación de usurarios </button>
+                <Link to='/gestion_productos'>
+                    <button className="button mainButton">Módulo de Gestión de Productos</button>
+                </Link>
+                <Link to='gestion_ventas'>
+                    <button className="button mainButton">Módulo de Gestión de Ventas</button>
+                </Link>
+                <Link to='/gestion_usuarios'>
+                    <button className="button mainButton">Módulo de Gestion de Usuarios</button>
                 </Link>
             </div>
         </div>
     )
 }
 
-export default IngresoForm
+export default IngresoForm;
