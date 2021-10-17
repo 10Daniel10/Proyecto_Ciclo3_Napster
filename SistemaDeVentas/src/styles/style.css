@@ -229,7 +229,7 @@
 
 .tabla th{
   background-color:navy;
-  color: rgb(231, 231, 231);
+  color: rgb(255, 255, 255);
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
@@ -245,6 +245,67 @@
   cursor: pointer;
 }
 
-.editBotton {
-  
+.actions {
+  display:flex; 
+  justify-content: space-around;
+}
+
+.dialogChart {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialogTitle {
+  font-size: xx-large;
+  font-weight: bolder;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.dialogButton {
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.dialogYes {
+  margin-right: 30px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 2px;
+  padding-right: 2px;
+  background-color: rgb(27, 196, 27);
+  width: 50px;
+  height: 45px;
+  border-radius: 5px;
+  border-color: #ddd;
+}
+
+.dialogNo {
+  margin-left: 30px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 2px;
+  padding-right: 2px;
+  background-color: rgb(228, 59, 59);
+  width: 50px;
+  height: 45px;
+  border-radius: 5px;
+  border-color: #ddd;
+}
+
+.iconConf{
+  color: green;
+}
+.iconCancel{
+  color: red;
+}
+.iconEdit{
+  color: orange;
+}
+.iconDelete{
+  color: coral;
 }

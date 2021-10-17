@@ -26,18 +26,29 @@ const DataBaseUser = () => {
    }, [setUsuarios]);
 
    return (
-      <tbody>
-         {usuarios.map((el) => {
-            return (
-               <tr>
+      <table className='tabla'>
+         <thead>
+            <tr>
+               <td>ID</td>
+               <td>Nombre</td>
+               <td>Apellido</td>
+               <td>Correo Electrónico</td>
+               <td>Tipo de Usuario</td>
+               <td>Estado Usuario</td>
+               <td>Acciones</td>
+            </tr>
+         </thead>
+         <tbody>
+            {usuarios.map((el) => {
+               return (
                   <FilaUsuario 
                      key={nanoid()}
                      usuario = {el}
                   />
-               </tr>
-            );
-         })}
-      </tbody>
+               );
+            })}
+         </tbody>
+      </table>
    )
 };
 
@@ -55,7 +66,6 @@ const FilaUsuario = ({usuario}) => {
 
    const actualizarUsuario = async () => {
       //enviar la info al backend
-
       await editarUsuario(
          usuario._id,
          {
@@ -99,7 +109,7 @@ const FilaUsuario = ({usuario}) => {
                <td>{infoNuevoUsuario._id}</td>
                <td>
                   <input
-                     className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+                     className=''
                      type='text'
                      value={infoNuevoUsuario.name}
                      onChange={(e) => setInfoNuevoUsuario({ ...infoNuevoUsuario, name: e.target.value })}
@@ -107,7 +117,7 @@ const FilaUsuario = ({usuario}) => {
                </td>
                <td>
                   <input
-                     className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+                     className=''
                      type='text'
                      value={infoNuevoUsuario.lastname}
                      onChange={(e) =>
@@ -117,7 +127,7 @@ const FilaUsuario = ({usuario}) => {
                </td>
                <td>
                   <input
-                     className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+                     className=''
                      type='text'
                      value={infoNuevoUsuario.email}
                      onChange={(e) =>
@@ -157,19 +167,19 @@ const FilaUsuario = ({usuario}) => {
             </>
          )}
          <td>
-            <div className='flex w-full justify-around'>
+            <div className='actions'>
                {edit ? (
                   <>
                      <Tooltip title='Confirmar Edición' arrow>
                         <i
                            onClick={() => actualizarUsuario()}
-                           className='fas fa-check text-green-700 hover:text-green-500'
+                           className='fas fa-check iconConf'
                         />
                      </Tooltip>
                      <Tooltip title='Cancelar edición' arrow>
                         <i
                            onClick={() => setEdit(!edit)}
-                           className='fas fa-ban text-yellow-700 hover:text-yellow-500'
+                           className='fas fa-ban iconCancel'
                         />
                      </Tooltip>
                   </>
@@ -178,33 +188,33 @@ const FilaUsuario = ({usuario}) => {
                   <Tooltip title='Editar Vehículo' arrow>
                      <i
                         onClick={() => setEdit(!edit)}
-                        className='fas fa-pencil-alt text-yellow-700 hover:text-yellow-500'
+                        className='fas fa-pencil-alt iconEdit'
                      />
                   </Tooltip>
                   <Tooltip title='Eliminar Vehículo' arrow>
                      <i
                         onClick={() => setOpenDialog(true)}
-                        className='fas fa-trash text-red-700 hover:text-red-500'
+                        className='fas fa-trash iconDelete'
                      />
                   </Tooltip>
                </>
             )}
             </div>
             <Dialog open={openDialog}>
-               <div className='p-8 flex flex-col'>
-                  <h1 className='text-gray-900 text-2xl font-bold'>
+               <div className='dialogChart'>
+                  <h1 className='dialogTitle'>
                      ¿Está seguro de querer eliminar el vehículo?
                   </h1>
-                  <div className='flex w-full items-center justify-center my-4'>
+                  <div className='dialogButton'>
                      <button
                         onClick={() => deleteUser()}
-                        className='mx-2 px-4 py-2 bg-green-500 text-white hover:bg-green-700 rounded-md shadow-md'
+                        className='dialogYes'
                      >
                         Sí
                      </button>
                      <button
                         onClick={() => setOpenDialog(false)}
-                        className='mx-2 px-4 py-2 bg-red-500 text-white hover:bg-red-700 rounded-md shadow-md'
+                        className='dialogNo'
                      >
                         No
                      </button>

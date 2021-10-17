@@ -173,23 +173,7 @@ const TablaUsuarios = ({listaUsuarios}) => {
       );
    }, [busqueda, listaUsuarios]);
 
-   return (
-      <>
-         <table className='tabla'>
-            <thead>
-               <tr>
-                  <td>ID</td>
-                  <td>Nombre y Apellido</td>
-                  <td>Correo Electrónico</td>
-                  <td>Tipo de Usuario</td>
-                  <td>Estado Usuario</td>
-                  <td>Acciones</td>
-               </tr>
-            </thead>
-            <DataBaseUser />
-         </table>
-      </>
-   )
-}
+   return <DataBaseUser />
+};
 
 export default GestionUser;
