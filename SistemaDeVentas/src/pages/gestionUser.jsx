@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { obtenerUsuarios } from 'utils/api';
 import { Link } from 'react-router-dom';
 import 'styles/style.css';
-import DataBaseUser from 'components/components';
+import DataBaseUser from 'components/comUser';
 
 const GestionUser = () => {
    return (
@@ -128,7 +128,7 @@ const GestionUser = () => {
                      <Usuarios />
                   </div>
                </div>
-               </div>
+            </div>
          </form>
          <section></section>
          </main>

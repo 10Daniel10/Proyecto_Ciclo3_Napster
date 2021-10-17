@@ -58,7 +58,7 @@ const FilaUsuario = ({usuario}) => {
    const [infoNuevoUsuario, setInfoNuevoUsuario] = useState({
       _id: usuario._id,
       name: usuario.name,
-      lastname: usuario.brand,
+      lastname: usuario.lastname,
       email: usuario.model,
       type: usuario.type,
       state: usuario.state
@@ -92,11 +92,11 @@ const FilaUsuario = ({usuario}) => {
          usuario._id,
          (response) => {
             console.log(response.data);
-            toast.success('vehículo eliminado con éxito');
+            toast.success('Usuario eliminado con éxito');
          },
          (error) => {
             console.error(error);
-            toast.error('Error eliminando el vehículo');
+            toast.error('Error eliminando el usuario');
          }
       );
       setOpenDialog(false);
@@ -109,7 +109,7 @@ const FilaUsuario = ({usuario}) => {
                <td>{infoNuevoUsuario._id}</td>
                <td>
                   <input
-                     className=''
+                     className='textBox'
                      type='text'
                      value={infoNuevoUsuario.name}
                      onChange={(e) => setInfoNuevoUsuario({ ...infoNuevoUsuario, name: e.target.value })}
@@ -117,7 +117,7 @@ const FilaUsuario = ({usuario}) => {
                </td>
                <td>
                   <input
-                     className=''
+                     className='textBox'
                      type='text'
                      value={infoNuevoUsuario.lastname}
                      onChange={(e) =>
@@ -127,7 +127,7 @@ const FilaUsuario = ({usuario}) => {
                </td>
                <td>
                   <input
-                     className=''
+                     className='textBox'
                      type='text'
                      value={infoNuevoUsuario.email}
                      onChange={(e) =>
@@ -137,7 +137,7 @@ const FilaUsuario = ({usuario}) => {
                </td>
                <td>
                   <input
-                     className=''
+                     className='textBox'
                      type='text'
                      value={infoNuevoUsuario.type}
                      onChange={(e) =>
@@ -147,7 +147,7 @@ const FilaUsuario = ({usuario}) => {
                </td>
                <td>
                   <input
-                     className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+                     className='textBox'
                      type='text'
                      value={infoNuevoUsuario.state}
                      onChange={(e) =>
@@ -185,13 +185,13 @@ const FilaUsuario = ({usuario}) => {
                   </>
                ) : (
                <>
-                  <Tooltip title='Editar Vehículo' arrow>
+                  <Tooltip title='Editar Usuario' arrow>
                      <i
                         onClick={() => setEdit(!edit)}
                         className='fas fa-pencil-alt iconEdit'
                      />
                   </Tooltip>
-                  <Tooltip title='Eliminar Vehículo' arrow>
+                  <Tooltip title='Eliminar Usuario' arrow>
                      <i
                         onClick={() => setOpenDialog(true)}
                         className='fas fa-trash iconDelete'
@@ -203,7 +203,7 @@ const FilaUsuario = ({usuario}) => {
             <Dialog open={openDialog}>
                <div className='dialogChart'>
                   <h1 className='dialogTitle'>
-                     ¿Está seguro de querer eliminar el vehículo?
+                     ¿Está seguro de querer eliminar el usuario?
                   </h1>
                   <div className='dialogButton'>
                      <button

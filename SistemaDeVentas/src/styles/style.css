@@ -180,14 +180,7 @@
 }
 
 .dataBaseTitle {
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid black;
   align-items: center;
-  padding: 20px;
-  font-weight: bolder;
-  font-size: large;
-  list-style: none;
 }
 
 .dataBase {
@@ -203,7 +196,9 @@
 .textBox {
   border: 1px solid gray;
   border-radius: 4px;
+  padding: 3px;
 }
+
 
 #filter {
   display: flex;

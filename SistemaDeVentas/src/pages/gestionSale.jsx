@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import 'styles/style.css';
 import { Link } from 'react-router-dom';
+import { obtenerVentas } from 'utils/api';
+import DataBaseSale from 'components/comSale';
 
 const GestionSale = () => {
    return (
@@ -72,36 +74,40 @@ const GestionSale = () => {
                   </ul>
                   </div>
                   <div id="inner-grid">
-                     <div id="contentul3">
+                     <div id="contentUl1">
                         <ul className="lista">
-                           <li>
-                           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;ID Venta:&nbsp;
-                              <input placeholder="DavidRamirez20" type="text" className="textBox"/>
-                           </li><br></br>
-                           <li>
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;ID Producto:&nbsp;
-                              <input placeholder="David" type="text" className="textBox"/>
-                           </li><br></br>
-                           <li>
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ID Usuario &nbsp;
-                              <input placeholder="Ramírez" type="text" className="textBox"/>
-                           </li><br></br>
-                           <li>
-                              <button className="button thirdButton">Buscar</button>
-                           </li>
+                        <li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;Producto:&nbsp;
+                           <input placeholder="Manzana" type="text" className="textBox"/>
+                        </li><br></br>
+                        <li>
+                           &nbsp; &nbsp;&nbsp;Nombre Usuario:&nbsp;
+                           <input placeholder="David" type="text" className="textBox"/>
+                        </li><br></br>
+                        <li>
+                           Nombre Vendedor:&nbsp;
+                           <input placeholder="Daniel" type="email" className="textBox"/>
+                        </li><br></br>
+                        </ul>
+                     </div>
+                     <div id="contentUl2">
+                        <ul className="lista">
+                        <li>
+                           &nbsp; Estado Venta: &nbsp;&nbsp; 
+                           <select id="widthSelectOne">
+                              <option></option>
+                              <option>En Proceso</option>
+                              <option>Entregado</option>
+                              <option>Cancelado</option>
+                           </select>
+                        </li><br></br>
+                        <li>
+                           <button className="button secondaryButton">Buscar</button>
+                        </li>
                         </ul>
                      </div>
                      <div className="dataBaseContent">
-                        <ul className="dataBaseTitle">
-                           <li><input type="checkbox"/></li>
-                           <li>ID Venta</li>
-                           <li>ID Producto</li>
-                           <li>Cantidad</li>
-                           <li>Valor Unitario</li>
-                           <li>Fecha de Venta</li>
-                           <li>ID Usuario</li>
-                           <li>Valor Total</li>
-                        </ul>
+                        <Venta />
                      </div>
                   </div>
                </div>
@@ -111,5 +117,45 @@ const GestionSale = () => {
       </div>
    )
 }
+
+const Venta = () => {
+   const [ventas, setVentas] = useState([]);
+   const [ejecutarConsulta, setEjecutarConsulta] = useState([]);
+
+   useEffect(() => {
+      console.log('consulta', ejecutarConsulta);
+      if (ejecutarConsulta) {
+         obtenerVentas(
+            (response) => {
+               console.log('La respuesta que se recibio fue:', response);
+               setVentas(response.data);
+            },
+            (error) => {
+               console.error('Salio un error:', error);
+            }
+         );
+         setEjecutarConsulta(true);
+      }
+   }, [ejecutarConsulta]);
+
+   return (
+      <TablaVentas listaVentas = {ventas} setEjecutarConsulta = {setEjecutarConsulta}/>
+   )
+}
+
+const TablaVentas = ({listaVentas}) => {
+   const [busqueda, setBusqueda] = useState('');
+   const [ventasFiltrados, setVentasFiltrados] = useState(listaVentas);
+
+   useEffect(() => {
+      setVentasFiltrados(
+         listaVentas.filter((elemento) => {
+            return JSON.stringify(elemento).toLowerCase().includes(busqueda.toLowerCase());
+         })
+      );
+   }, [busqueda, listaVentas]);
+
+   return <DataBaseSale />
+};
 
 export default GestionSale;

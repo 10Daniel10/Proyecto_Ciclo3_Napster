@@ -1,5 +1,8 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import DataBaseProduct from 'components/comProd';
+import { obtenerProductos } from 'utils/api';
 import { Link } from 'react-router-dom';
+import 'styles/style.css';
 
 const GestionProd = () => {
    return (
@@ -66,60 +69,80 @@ const GestionProd = () => {
                      <div id="contentUl1">
                         <ul className="lista">
                         <li>
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;Usuario:&nbsp;
-                           <input placeholder="DavidRamirez20" type="text" className="textBox"/>
+                           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;Descripción:&nbsp;
+                           <input placeholder="Manzana" type="text" className="textBox"/>
                         </li><br></br>
                         <li>
-                           Correo electrónico:&nbsp;
-                           <input placeholder="udea@edu.co" type="email" className="textBox"/>
-                        </li><br></br>
-                        <li>
-                           &nbsp; &nbsp; &nbsp; &nbsp;Identificación: &nbsp;
+                           &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;ID Producto:&nbsp;
                            <input placeholder="C.C" type="number" className="textBox"/>
                         </li><br></br>
                         </ul>
                      </div>
                      <div id="contentUl2">
-                        <ul className="lista">
-                        <li>
-                           &nbsp; Tipo de Usuario: &nbsp;  
-                           <select id="widthSelectOne">
-                              <option></option>
-                              <option>Administrador</option>
-                              <option>Vendedor</option>
-                              <option>Usuario</option>
-                           </select>
-                        </li><br></br>
-                        <li>
-                           Estado de Cuenta: &nbsp; 
-                           <input placeholder="Ej: 1000000" type="number" className="textBox"/>
-                        </li><br></br>
-                        <li>
-                           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ID: &nbsp; 
-                           <input placeholder="U001" type="text" className="textBox"/>
-                        </li><br></br>
-                        <li>
-                           <button className="button secondaryButton">Buscar</button>
-                        </li>
-                        </ul>
+                        <ul className='lista'>
+                           <li>
+                           &nbsp; Estado Producto: &nbsp;&nbsp; 
+                              <select id="widthSelectOne">
+                                 <option></option>
+                                 <option>Dispoinble</option>
+                                 <option>Pendiente</option>
+                                 <option>No Disponible</option>
+                              </select>
+                           </li><br></br>
+                           <li>
+                              <button className="button secondaryButton">Buscar</button>
+                           </li>
+                        </ul>  
                      </div>
                      <div className="dataBaseContent">
-                        <ul className="dataBaseTitle">
-                           <li><input type="checkbox"/></li>
-                           <li>ID Producto</li>
-                           <li>Descripción</li>
-                           <li>Valor unitario</li>
-                           <li>Estado</li>
-                        </ul>
-                        
+                        <Productos />
                      </div>
                   </div>
                </div>
             </form>
-            <section></section>
          </main>
       </div>
    )
 }
+
+const Productos = () => {
+   const [productos, setProductos] = useState([]);
+   const [ejecutarConsulta, setEjecutarConsulta] = useState([]);
+
+   useEffect(() => {
+      console.log('consulta', ejecutarConsulta);
+      if (ejecutarConsulta) {
+         obtenerProductos(
+            (response) => {
+               console.log('La respuesta que se recibio fue:', response);
+               setProductos(response.data);
+            },
+            (error) => {
+               console.error('Salio un error:', error);
+            }
+         );
+         setEjecutarConsulta(true);
+      }
+   }, [ejecutarConsulta]);
+
+   return (
+      <TablaProductos listaProductos = {productos} setEjecutarConsulta = {setEjecutarConsulta}/>
+   )
+}
+
+const TablaProductos = ({listaProductos}) => {
+   const [busqueda, setBusqueda] = useState('');
+   const [ProductosFiltrados, setProductosFiltrados] = useState(listaProductos);
+
+   useEffect(() => {
+      setProductosFiltrados(
+         listaProductos.filter((elemento) => {
+            return JSON.stringify(elemento).toLowerCase().includes(busqueda.toLowerCase());
+         })
+      );
+   }, [busqueda, listaProductos]);
+
+   return <DataBaseProduct />
+};
 
 export default GestionProd;
