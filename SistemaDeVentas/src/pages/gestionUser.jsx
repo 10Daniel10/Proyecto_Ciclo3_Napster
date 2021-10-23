@@ -20,6 +20,17 @@ const GestionUser = () => {
                      <span id="filter"></span><br></br>
                      <li>
                         <Link to='/'>
+                           <button className="button mainButton">Usuario</button>
+                        </Link>
+                     </li><br></br>
+                     <li>
+                        <Link to='/'>
+                           <button className="button mainButton">Cerrar Sesión</button>
+                        </Link>
+                     </li><br></br>
+                     <span id="filter"></span><br></br>
+                     <li>
+                        <Link to='/'>
                            <button className="button mainButton">Menú Principal</button>
                         </Link>
                      </li><br></br>
