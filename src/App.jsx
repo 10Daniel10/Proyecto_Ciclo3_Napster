@@ -12,10 +12,10 @@ import MainPage from 'pages/mainPage';
 function App() {
     return (
         <Auth0Provider
-            domain="misiontic-napster.us.auth0.com"
-            clientId="2Kv0ttlFaRWRLEnAPx8yViPbLCzk6PM1"
+            domain="sistemaventas.us.auth0.com"
+            clientId="tboVA22gubYLENrIbdihXEZ3wl7Bg1p5"
             redirectUri={window.location.origin}
-            audience='sistema-de-ventas-napster'
+            audience="api-sistemadeventas-napster"
         >  
             <Router>
                 <Switch>

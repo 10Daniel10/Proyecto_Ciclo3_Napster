@@ -1,9 +1,5 @@
 import axios from 'axios';
 
-const getToken = () => {
-   return `Bearer ${localStorage.getItem('token')}`;
- };
-
 // CRUD USUARIO
 
 export const obtenerUsuarios = async (successCallback, errorCallback) => {
@@ -79,13 +75,7 @@ export const eliminarVentas = async (id, successCallback, errorCallback) => {
 // CRUD PRODUCTO 
 
 export const obtenerProductos = async (successCallback, errorCallback) => {
-   const options = { 
-      method: 'GET', 
-      url:'http://localhost:5050/productos/',
-      headers: {
-         Authorization: getToken(),
-      },
-   };
+   const options = { method: 'GET', url:'http://localhost:5050/productos/'};
    await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
