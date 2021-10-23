@@ -1,0 +1,355 @@
+.cabecera {
+  background-color:darkgoldenrod;
+  padding: 30px;
+  margin: 0px;
+  justify-content: flex-end;
+}
+
+.sidebar {
+  display: grid;
+  list-style: none;
+}
+
+.contenedor2 {
+  list-style: none;
+  background-color:white;
+  margin: 0px;
+  padding: 5px;
+  border-radius: 50px;
+  box-shadow: 1px 1px gray;
+  justify-self: flex-end;
+}
+
+.userButton {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userButton > button {
+  margin: 0px;
+}
+
+.button {
+  border: 0px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-weight: bolder;
+}
+
+.button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.button2 {
+  border: 0px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-weight: bolder;
+  background-color: bisque;
+}
+
+.button2:hover {
+  cursor: pointer;
+  background-color: rgb(226, 195, 156);
+}
+
+.mainButton {
+  background-color:gray;
+  color: white;
+  width: 150px;
+}
+
+.mainButton:hover {
+  box-shadow: 2px 2px grey;
+}
+
+.secondaryButton {
+  border: 1px solid gray;
+  background-color:burlywood;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.secondaryButton:hover {
+  background-color: rgb(204, 153, 86);
+}
+
+.lista {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.widthSelect {
+  width: 80%;
+}
+
+#widthSelectOne {
+  width: 55.2%;
+}
+
+#outer-grid {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  grid-template-columns: 18% 82%;
+  height: 92vh;
+}
+
+#inner-grid {
+  display: grid;
+  grid-template-rows: 0fr;
+  grid-template-columns: 50% 50%;
+  background-color:beige;
+  padding: 20px;
+  border-radius: 2px;
+  list-style: none;
+  height: 100%;
+}
+
+#gridStandard {
+  display: flex;
+  background-color: beige;
+  justify-content: center;
+  align-content: center;
+  padding-top: 30px;
+}
+
+#gridStandard > form {
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 30%;
+  background-color: rgba(184, 135, 11, 0.11);
+}
+
+#columnOne {
+  background-color:darkgoldenrod;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 25px;
+  padding-left: 25px;
+  height: auto;
+}
+
+#contentUl1 {
+  display: flex;
+  grid-column: span 2;
+  background-color:rgba(184, 135, 11, 0.11);
+  padding: 30px;
+  justify-content: center;
+}
+
+#contentUl2 {
+  display: flex;
+  background-color:rgba(184, 135, 11, 0.11);
+  padding: 30px;
+  justify-content: flex-start;
+}
+
+#contentul3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(184, 135, 11, 0.11);
+}
+
+#contentul4 {
+  display: flex;
+  align-items: center;
+  background-color: rgba(184, 135, 11, 0.11);
+}
+
+#blockTitle {
+  display: flex;
+  justify-self: center;
+  text-align: center;
+  background-color: white;
+  padding: 30px 30px 30px 30px;
+  margin: 8px;
+  border-radius: 10px;
+  font-size:larger;
+  font-weight: bolder;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dataBaseContent {
+  display: grid;
+  grid-column: span 2;
+  margin-top: 10px;
+  list-style: none;
+}
+
+.dataBaseTitle {
+  align-items: center;
+}
+
+.dataBase {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  border: 1px solid black;
+  padding: 20px;
+  align-items: center;
+  list-style: none;
+}
+
+.textBox {
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 3px;
+}
+
+
+#filter {
+  display: flex;
+  justify-content: center;
+  font-size: larger; 
+  font-weight: bolder;
+  font-family: Arial, Helvetica, sans-serif;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 5px;
+}
+
+.tabla{
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.tabla td,
+.tabla th{
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.tabla th{
+  background-color:navy;
+  color: rgb(255, 255, 255);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  font-size: xx-large;
+}
+
+.tabla tr:nth-child(even){
+  background-color:#f2f2f2;;
+}
+
+.tabla tr:hover{
+  background-color:rgba(88, 171, 255, 0.651);
+  cursor: pointer;
+}
+
+.actions {
+  display:flex; 
+  justify-content: space-around;
+}
+
+.dialogChart {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialogTitle {
+  font-size: xx-large;
+  font-weight: bolder;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.dialogButton {
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.dialogYes {
+  margin-right: 30px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 2px;
+  padding-right: 2px;
+  background-color: rgb(27, 196, 27);
+  width: 50px;
+  height: 45px;
+  border-radius: 5px;
+  border-color: #ddd;
+}
+
+.dialogNo {
+  margin-left: 30px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 2px;
+  padding-right: 2px;
+  background-color: rgb(228, 59, 59);
+  width: 50px;
+  height: 45px;
+  border-radius: 5px;
+  border-color: #ddd;
+}
+
+.iconConf{
+  color: green;
+}
+.iconCancel{
+  color: red;
+}
+.iconEdit{
+  color: orange;
+}
+.iconDelete{
+  color: coral;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  list-style: none;
+}
+
+.contImagen {
+  width: 240px;
+  height: 350px;
+  display: flex;
+}
+
+.contImagen > img {
+  object-fit:cover;
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.breedCardContainer {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.breedCard {
+  margin: 10px;
+  background-color: cadetblue;
+  box-shadow: 5px 10px 5px gray;
+  border-radius: 10px;
+}
+
+.breedCard:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
+.breedTitle {
+  display: flex;
+  color: white;
+  margin: 10px;
+  font-weight: bolder;
+  font-size: x-large;
+  justify-content: center;
+}
