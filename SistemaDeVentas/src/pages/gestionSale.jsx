@@ -1,10 +1,14 @@
 import React, {useState, useEffect} from 'react';
-import 'styles/style.css';
-import { Link } from 'react-router-dom';
-import { obtenerVentas } from 'utils/api';
 import DataBaseSale from 'components/comSale';
+import { useAuth0 } from "@auth0/auth0-react";
+import { obtenerVentas } from 'utils/api';
+import { Link } from 'react-router-dom';
+import 'styles/style.css';
 
 const GestionSale = () => {
+
+   const { logout } = useAuth0();
+
    return (
       <div>
          <header className="cabecera">
@@ -20,14 +24,20 @@ const GestionSale = () => {
                      <ul className="sidebar">
                         <span id="filter"></span><br></br>
                         <li>
-                           <Link to='/'>
-                              <button className="button mainButton">Usuario</button>
-                           </Link>
+                           <div className='userButton'>
+                              <Link to='/'>
+                                 <i class="fas fa-user"></i>
+                                 <button className="button2" onClick={() => logout({ returnTo: window.location.origin })}>Usuario</button>
+                              </Link>
+                           </div>
                         </li><br></br>
                         <li>
-                           <Link to='/'>
-                              <button className="button mainButton">Cerrar Sesión</button>
-                           </Link>
+                           <div className='userButton'>
+                              <Link to='/'>
+                                 <i class="fas fa-sign-out-alt"></i>
+                                 <button className="button2">Cerrar Sesión</button>
+                              </Link>
+                           </div>
                         </li><br></br>
                         <span id="filter"></span><br></br>
                         <li>

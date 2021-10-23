@@ -1,15 +1,20 @@
 import React, {useState, useEffect} from 'react';
 import DataBaseProduct from 'components/comProd';
+import { useAuth0 } from "@auth0/auth0-react";
 import { obtenerProductos } from 'utils/api';
 import { Link } from 'react-router-dom';
 import 'styles/style.css';
 
 const GestionProd = () => {
+
+   const { user, isAuthenticated} = useAuth0();
+   const { logout } = useAuth0();
+
    return (
       <div>
          <header className="cabecera">
             <div className="contenedor2">
-                  
+
             </div>
          </header>      
          <main>
@@ -20,13 +25,17 @@ const GestionProd = () => {
                      <ul className="sidebar">
                         <span id="filter"></span><br></br>
                         <li>
-                           <Link to='/'>
-                              <button className="button mainButton">Usuario</button>
-                           </Link>
+                           {isAuthenticated && (
+                              <div>
+                                 <span>{user.name}</span><br></br>
+                                 <span>{user.email}</span>
+                              </div>
+                           )}
                         </li><br></br>
                         <li>
                            <Link to='/'>
-                              <button className="button mainButton">Cerrar Sesión</button>
+                              <i className="fas fa-sign-out-alt"></i>
+                              <button className="button2" onClick={() => logout({ returnTo: window.location.origin })}>Cerrar Sesión</button>
                            </Link>
                         </li><br></br>
                         <span id="filter"></span><br></br>

@@ -15,6 +15,7 @@ function App() {
             domain="misiontic-napster.us.auth0.com"
             clientId="2Kv0ttlFaRWRLEnAPx8yViPbLCzk6PM1"
             redirectUri={window.location.origin}
+            audience='sistema-de-ventas-napster'
         >  
             <Router>
                 <Switch>

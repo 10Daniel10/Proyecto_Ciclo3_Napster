@@ -20,6 +20,15 @@
   justify-self: flex-end;
 }
 
+.userButton {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userButton > button {
+  margin: 0px;
+}
+
 .button {
   border: 0px;
   padding: 5px 10px;
@@ -30,6 +39,19 @@
 .button:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+
+.button2 {
+  border: 0px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-weight: bolder;
+  background-color: bisque;
+}
+
+.button2:hover {
+  cursor: pointer;
+  background-color: rgb(226, 195, 156);
 }
 
 .mainButton {
@@ -49,8 +71,8 @@
   padding: 10px;
 }
 
-.thirdButton {
-  width: 50%;
+.secondaryButton:hover {
+  background-color: rgb(204, 153, 86);
 }
 
 .lista {

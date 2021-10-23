@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
+import DataBaseUser from 'components/comUser';
+import { useAuth0 } from "@auth0/auth0-react";
 import { obtenerUsuarios } from 'utils/api';
 import { Link } from 'react-router-dom';
 import 'styles/style.css';
-import DataBaseUser from 'components/comUser';
 
 const GestionUser = () => {
+
+   const { logout } = useAuth0();
+
    return (
       <div>
          <header className="cabecera">
@@ -20,12 +24,14 @@ const GestionUser = () => {
                      <span id="filter"></span><br></br>
                      <li>
                         <Link to='/'>
-                           <button className="button mainButton">Usuario</button>
+                           <i class="fas fa-user"></i>
+                           <button className="button2">Usuario</button>
                         </Link>
                      </li><br></br>
                      <li>
                         <Link to='/'>
-                           <button className="button mainButton">Cerrar Sesión</button>
+                           <i class="fas fa-sign-out-alt"></i>
+                           <button className="button2" onClick={() => logout({ returnTo: window.location.origin })}>Cerrar Sesión</button>
                         </Link>
                      </li><br></br>
                      <span id="filter"></span><br></br>
