@@ -57,15 +57,18 @@ const RegProd = () => {
           <label className="controls2">Estado</label>
           <label htmlFor='state'>
             <input className="radiob" type="radio" value="Disponible" name="state"/> Disponible
-            <input className="radiob" type="radio" value="NoDisponible" name="state" /> No Disponible
+            <input className="radiob" type="radio" value="No Disponible" name="state" /> No Disponible
           </label>
           
           <button className="botons" type="submit" value="Enviar">Registar Producto</button>
           <button className="botons" type="reset" value="Reestablecer">Limpiar Campos</button>
+          <Link to="gestion_productos">
+            <button className="botons" type="reset" value="Reestablecer">Ir a Gestión de Productos</button>
+          </Link>
 
           <Link to='/'>Volver</Link>
         </form>
-      </body>
+      </body><br></br><br></br><br></br><br></br>
     </div>
   );
 };

@@ -106,7 +106,7 @@ const FilaUsuario = ({usuario}) => {
       <tr>
          {edit ? (
             <>
-               <td>{infoNuevoUsuario._id}</td>
+               <td>{infoNuevoUsuario._id.slice(20)}</td>
                <td>
                   <input
                      className='textBox'

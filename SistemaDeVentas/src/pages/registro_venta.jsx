@@ -1,24 +1,24 @@
 import '../styles/App.css';
 import '../Media/Background.jpg';
-import { Link } from 'react-router-dom';
+import React, { useRef} from 'react';
 import { crearVentas } from 'utils/api.js';
-import React, {useRef} from 'react';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const RegVenta = () => {
 
-const form = useRef(null);
+  const form = useRef(null);
 
-const SubmitForm = async (e) => {
-   e.preventDefault();
-   const fd = new FormData(form.current);
+  const SubmitForm = async (e) => {
+    e.preventDefault();
+    const fd = new FormData(form.current);
 
-   const nuevaVenta = {};
+    const nuevaVenta = {};
       fd.forEach((value, key) => {
-        nuevaVenta[key] = value;
-   });
+      nuevaVenta[key] = value;
+    });
 
-   await crearVentas(
+    await crearVentas(
       {
         product: nuevaVenta.product,
         amount: nuevaVenta.amount,
@@ -37,9 +37,9 @@ const SubmitForm = async (e) => {
         console.error(error);
         toast.error('Error creando una venta');
       }
-   );
-   //setMostrarTabla(true);
-}
+    );
+      //setMostrarTabla(true);
+  }
 
   return (
     <div className="App2">
@@ -88,6 +88,10 @@ const SubmitForm = async (e) => {
 
           <button className="botons" type="submit" value="Enviar">Registar venta</button>
           <button className="botons" type="reset" value="Reestablecer">Limpiar Campos</button>
+          <Link to="gestion_ventas">
+            <button className="botons" type="reset" value="Reestablecer">Ir a Gestión de Ventas</button>
+          </Link>
+
           <Link to='/'>Volver</Link>
         </form>
       </body>

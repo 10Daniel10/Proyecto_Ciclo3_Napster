@@ -1,14 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {eliminarVentas, editarVentas} from 'utils/api.js'
+import { obtenerVentas, eliminarVentas, editarVentas, obtenerProductos, obtenerUsuarios} from 'utils/api.js'
 import { Dialog, Tooltip } from '@mui/material';
-import { obtenerVentas } from 'utils/api';
 import { toast } from 'react-toastify';
 import { nanoid } from 'nanoid';
 import 'styles/style.css';
 
 
 const DataBaseSale = () => {
-
    const [ventas, setVentas] = useState([]);
 
    useEffect(() => {
@@ -120,7 +118,7 @@ const FilaVenta = ({venta}) => {
                      className='textBox'
                      type='text'
                      value={infoNuevoVenta.product}
-                     onChange={(e) => setInfoNuevoVenta({ ...infoNuevoVenta, name: e.target.value })}
+                     onChange={(e) => setInfoNuevoVenta({ ...infoNuevoVenta, product: e.target.value })}
                   />
                </td>
                <td>

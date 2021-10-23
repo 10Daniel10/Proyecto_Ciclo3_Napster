@@ -7,6 +7,7 @@ import GestionProd from 'pages/gestionProd';
 import GestionSale from 'pages/gestionSale';
 import { Auth0Provider } from "@auth0/auth0-react";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import MainPage from 'pages/mainPage';
 
 function App() {
     return (
@@ -35,8 +36,11 @@ function App() {
                     <Route path="/registro_usuario">
                         <RegUsuario />
                     </Route>
-                    <Route path="/">
+                    <Route path="/inicar_sesion">
                         <IngresoForm />
+                    </Route>
+                    <Route path="/">
+                        <MainPage />
                     </Route>
                 </Switch>
             </Router>

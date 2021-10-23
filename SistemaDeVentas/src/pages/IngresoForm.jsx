@@ -18,32 +18,12 @@ function IngresoForm({Ingreso}) {
                     {/* ERROR!*/}
                     <button className="envio" onClick={() => loginWithRedirect()}>
                         INICIAR SESIÓN CON AUTH0
-                    </button>
+                    </button>            
                     <button className="envio" onClick={() => logout({ returnTo: window.location.origin })}>
                         CERRAR SESIÓN
                     </button>
                 </div>
             </form>
-            <div className='foot'>
-                <Link to='/registro_producto'>
-                    <button className="button mainButton">Módulo de Registro de Productos</button>
-                </Link>
-                <Link to='/registro_venta'>
-                    <button className="button mainButton">Módulo de Registro de Ventas</button>
-                </Link>
-                <Link to='/registro_usuario'>
-                    <button className="button mainButton">Módulo de Registro de Usuarios</button>
-                </Link>
-                <Link to='/gestion_productos'>
-                    <button className="button mainButton">Módulo de Gestión de Productos</button>
-                </Link>
-                <Link to='gestion_ventas'>
-                    <button className="button mainButton">Módulo de Gestión de Ventas</button>
-                </Link>
-                <Link to='/gestion_usuarios'>
-                    <button className="button mainButton">Módulo de Gestion de Usuarios</button>
-                </Link>
-            </div>
         </div>
     )
 }

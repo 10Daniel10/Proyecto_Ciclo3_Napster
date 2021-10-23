@@ -105,7 +105,9 @@ const FilaProducto= ({producto}) => {
                      className='textBox'
                      type='text'
                      value={infoNuevoProducto.description}
-                     onChange={(e) => setInfoNuevoProducto({ ...infoNuevoProducto, description: e.target.value })}
+                     onChange={(e) => 
+                        setInfoNuevoProducto({ ...infoNuevoProducto, description: e.target.value })
+                     }
                   />
                </td>
                <td>
