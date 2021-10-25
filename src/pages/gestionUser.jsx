@@ -7,7 +7,13 @@ import 'styles/style.css';
 
 const GestionUser = () => {
 
+   const { user, isAuthenticated } = useAuth0();
    const { logout } = useAuth0();
+
+   const cerrarSesion = () => {
+      logout({ returnTo: window.location.origin });
+      localStorage.setItem('token', null);
+   }
 
    return (
       <div>
@@ -23,18 +29,15 @@ const GestionUser = () => {
                   <ul className="sidebar">
                      <span id="filter"></span><br></br>
                      <li>
-                        <Link to='/'>
-                           <i class="fas fa-user"></i>
-                           <button className="button2">Usuario</button>
-                        </Link>
+                        {isAuthenticated && (
+                           <div>
+                              <img src={user.picture} className='picUser'></img><br></br>
+                              <h3>{user.name}</h3>
+                              <span>{user.email}</span>
+                           </div>
+                        )}
                      </li><br></br>
-                     <li>
-                        <Link to='/'>
-                           <i class="fas fa-sign-out-alt"></i>
-                           <button className="button2" onClick={() => logout({ returnTo: window.location.origin })}>Cerrar Sesión</button>
-                        </Link>
-                     </li><br></br>
-                     <span id="filter"></span><br></br>
+                     <span id="filter">Navegación</span><br></br>
                      <li>
                         <Link to='/'>
                            <button className="button mainButton">Menú Principal</button>
@@ -50,12 +53,16 @@ const GestionUser = () => {
                            <button className="button mainButton">Ventas</button>
                         </Link>
                      </li><br></br>
-                     <span id="filter"></span>
+                     <span id="filter"></span><br></br>
                   </ul> 
+                  <div>
+                     <Link to='/'>
+                        <button className="button2" onClick={() => cerrarSesion()}>Cerrar Sesión</button>
+                     </Link>
+                  </div>
                </div>
                <div id="inner-grid">
                   <div id="contentUl1">
-                     
                   </div>
                   <div className="dataBaseContent">
                      <Usuarios />

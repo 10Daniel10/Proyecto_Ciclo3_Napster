@@ -7,14 +7,18 @@ import 'styles/style.css';
 
 const GestionProd = () => {
 
-   const { user, isAuthenticated} = useAuth0();
+   const { user, isAuthenticated } = useAuth0();
    const { logout } = useAuth0();
+
+   const cerrarSesion = () => {
+      logout({ returnTo: window.location.origin });
+      localStorage.setItem('token', null);
+   }
 
    return (
       <div>
          <header className="cabecera">
             <div className="contenedor2">
-
             </div>
          </header>      
          <main>
@@ -27,18 +31,13 @@ const GestionProd = () => {
                         <li>
                            {isAuthenticated && (
                               <div>
-                                 <span>{user.name}</span><br></br>
+                                 <img src={user.picture} className='picUser'></img><br></br>
+                                 <h3>{user.name}</h3>
                                  <span>{user.email}</span>
                               </div>
                            )}
                         </li><br></br>
-                        <li>
-                           <Link to='/'>
-                              <i className="fas fa-sign-out-alt"></i>
-                              <button className="button2" onClick={() => logout({ returnTo: window.location.origin })}>Cerrar Sesión</button>
-                           </Link>
-                        </li><br></br>
-                        <span id="filter"></span><br></br>
+                        <span id="filter">Navegación</span><br></br>
                         <li>
                            <Link to='/'>
                               <button className="button mainButton">Menú Principal</button>
@@ -54,8 +53,13 @@ const GestionProd = () => {
                               <button className="button mainButton">Ventas</button>
                            </Link>
                         </li><br></br>
-                        <span id="filter"></span>
-                     </ul> 
+                        <span id="filter"></span><br></br>
+                     </ul>
+                     <div>
+                        <Link to='/'>
+                           <button className="button2" onClick={() => cerrarSesion()}>Cerrar Sesión</button>
+                        </Link>
+                     </div>
                   </div>
                   <div id="inner-grid">
                      <div id="contentUl1">
@@ -78,22 +82,32 @@ const GestionProd = () => {
 
 const Productos = () => {
    const [productos, setProductos] = useState([]);
-   const [ejecutarConsulta, setEjecutarConsulta] = useState([]);
+   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
+   const [loading, setLoading] = useState(false)
 
    useEffect(() => {
-      console.log('consulta', ejecutarConsulta);
-      if (ejecutarConsulta) {
-         obtenerProductos(
+      
+      const fetchProductos = async () => {
+         setLoading(true)
+         await obtenerProductos(
             (response) => {
                console.log('La respuesta que se recibio fue:', response);
                setProductos(response.data);
+               setEjecutarConsulta(false);
+               setLoading(false);
             },
             (error) => {
                console.error('Salio un error:', error);
+               setLoading(false);
             }
          );
-         setEjecutarConsulta(true);
-      }
+      };
+         
+      console.log('consulta', ejecutarConsulta);
+      if (ejecutarConsulta) {
+         fetchProductos();
+      };
+
    }, [ejecutarConsulta]);
 
    return (

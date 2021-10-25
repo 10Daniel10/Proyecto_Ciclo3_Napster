@@ -10,7 +10,7 @@ const MainPage = () => {
                <CardLinks
                   nombre ="Iniciar Sesión" 
                   imagen ="https://media.istockphoto.com/photos/human-figure-icon-graphic-as-user-login-button-on-white-keyboard-picture-id1226883131?b=1&k=20&m=1226883131&s=170667a&w=0&h=FMYb1DFOYbcb2vmbzZhq71k-4cuarJ1U4xCBWjGnze8="
-                  link = '/inicar_sesion' 
+                  link = '/iniciar_sesion' 
                />
                <CardLinks
                   nombre ="Registro Productos" 
@@ -32,7 +32,7 @@ const MainPage = () => {
                   link = '/gestion_usuarios'
                />
                <CardLinks
-                  nombre="Gestión productos" 
+                  nombre="Gestión Productos" 
                   imagen="https://images.unsplash.com/photo-1526152505827-d2f3b5b4a52a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
                   link = '/gestion_productos'
                />

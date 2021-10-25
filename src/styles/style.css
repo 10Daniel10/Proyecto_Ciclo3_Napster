@@ -205,8 +205,7 @@
 #filter {
   display: flex;
   justify-content: center;
-  font-size: larger; 
-  font-weight: bolder;
+  font-size:medium; 
   font-family: Arial, Helvetica, sans-serif;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -352,4 +351,18 @@
   font-weight: bolder;
   font-size: x-large;
   justify-content: center;
+}
+
+.loading {
+  display: flex;
+  -ms-flex-align: center;
+  background-color: darkblue;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.picUser {
+  border-radius: 20px;
 }

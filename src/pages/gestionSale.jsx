@@ -6,8 +6,14 @@ import { Link } from 'react-router-dom';
 import 'styles/style.css';
 
 const GestionSale = () => {
-
+   
+   const { user, isAuthenticated } = useAuth0();
    const { logout } = useAuth0();
+
+   const cerrarSesion = () => {
+      logout({ returnTo: window.location.origin });
+      localStorage.setItem('token', null);
+   }
 
    return (
       <div>
@@ -24,22 +30,15 @@ const GestionSale = () => {
                      <ul className="sidebar">
                         <span id="filter"></span><br></br>
                         <li>
-                           <div className='userButton'>
-                              <Link to='/'>
-                                 <i class="fas fa-user"></i>
-                                 <button className="button2" onClick={() => logout({ returnTo: window.location.origin })}>Usuario</button>
-                              </Link>
-                           </div>
+                           {isAuthenticated && (
+                              <div>
+                                 <img src={user.picture} className='picUser'></img><br></br>
+                                 <h3>{user.name}</h3>
+                                 <span>{user.email}</span>
+                              </div>
+                           )}
                         </li><br></br>
-                        <li>
-                           <div className='userButton'>
-                              <Link to='/'>
-                                 <i class="fas fa-sign-out-alt"></i>
-                                 <button className="button2">Cerrar Sesión</button>
-                              </Link>
-                           </div>
-                        </li><br></br>
-                        <span id="filter"></span><br></br>
+                        <span id="filter">Navegación</span><br></br>
                         <li>
                            <Link to='/'>
                               <button className="button mainButton">Menú Principal</button>
@@ -57,6 +56,11 @@ const GestionSale = () => {
                         </li><br></br>
                         <span id="filter"></span><br></br>
                      </ul> 
+                     <div>
+                        <Link to='/'>
+                           <button className="button2" onClick={() => cerrarSesion()}>Cerrar Sesión</button>
+                        </Link>
+                     </div>
                   </div>
                   <div id="inner-grid">
                      <div id="contentUl1">

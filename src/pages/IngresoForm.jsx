@@ -2,22 +2,22 @@ import React from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
 import '../styles/IngresoForm.css'
 
-function IngresoForm({Ingreso}) {
+function IngresoForm() {
     const gestorEnvio = e =>{
         e.preventDefault();
-        
-    }
+    };
+
     const { loginWithRedirect } = useAuth0();
     const { logout } = useAuth0();
+
     return (
         <div >
             <form onSubmit = {gestorEnvio} className="form--inicio form__entrada-grupo">
                 <div className="form-interior"> 
-                    <h2 className= "form__titulo">Ingreso</h2>
-                    {/* ERROR!*/}
+                    <h2 className= "form__titulo">Ingresar</h2>
                     <button className="envio" onClick={() => loginWithRedirect()}>
                         INICIAR SESIÓN CON AUTH0
-                    </button>            
+                    </button>      
                     <button className="envio" onClick={() => logout({ returnTo: window.location.origin })}>
                         CERRAR SESIÓN
                     </button>
